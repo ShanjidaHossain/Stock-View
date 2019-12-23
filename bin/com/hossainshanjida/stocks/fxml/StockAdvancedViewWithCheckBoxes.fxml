@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="apStock" prefHeight="685.0" prefWidth="785.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jbbwebsolutions.stocks.fxml.StockController">
+	<children>
+		<TableView fx:id="tvStock" layoutX="26.0" layoutY="227.0" prefHeight="409.0" prefWidth="726.0">
+			<columns>
+				<TableColumn fx:id="colSymbol" prefWidth="104.80002212524414" text="Stock Symbol">
+
+					<cellValueFactory>
+						<PropertyValueFactory property="symbol" />
+					</cellValueFactory>
+
+				</TableColumn>
+				<TableColumn fx:id="colPrice" prefWidth="127.20002746582031" text="Current Price">
+					<cellValueFactory>
+						<PropertyValueFactory property="price" />
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn fx:id="colCategory" prefWidth="92.0" text="Category">
+					<cellValueFactory>
+						<PropertyValueFactory property="category" />
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn fx:id="colNetIncome" prefWidth="135.199951171875" text="Net Income">
+					<cellValueFactory>
+						<PropertyValueFactory property="netIncome" />
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn fx:id="colDividendYield" prefWidth="124.0" text="Dividend Yield">
+					<cellValueFactory>
+						<PropertyValueFactory property="dividendYield" />
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn fx:id="colSector" prefWidth="124.00006103515625" text="Sectors">
+					<cellValueFactory>
+						<PropertyValueFactory property="sectors" />
+					</cellValueFactory>
+				</TableColumn>
+			</columns>
+		</TableView>
+		<Label fx:id="lblTitle" contentDisplay="CENTER" layoutX="310.0" layoutY="6.0" prefHeight="26.0" prefWidth="166.0" text="Advanced Category Stock ">
+			<font>
+				<Font size="14.0" />
+			</font>
+		</Label>
+		<Label layoutX="24.0" layoutY="57.0" prefHeight="18.0" prefWidth="31.0" text="Price" />
+		<Button fx:id="btnSearch" disable="true" layoutX="58.0" layoutY="92.0" mnemonicParsing="false" onAction="#search" prefHeight="26.0" prefWidth="58.0" text="Search" />
+		<Label fx:id="lblMessage" layoutX="24.0" layoutY="556.0" prefHeight="17.0" prefWidth="434.0" />
+		<Label layoutX="24.0" layoutY="198.0" prefHeight="17.0" prefWidth="434.0" text="Display price greater than, or All represents show all data" />
+		<RadioButton fx:id="rbSimple" layoutX="631.0" layoutY="46.0" mnemonicParsing="false" onAction="#searchMode" text="Simple">
+			<toggleGroup>
+				<ToggleGroup fx:id="tgSearchMode" />
+			</toggleGroup>
+		</RadioButton>
+		<RadioButton fx:id="rbAdvanced" layoutX="631.0" layoutY="69.0" mnemonicParsing="false" onAction="#searchMode" text="Advance" toggleGroup="$tgSearchMode" />
+		<TextField fx:id="txtField" layoutX="58.0" layoutY="53.0" onKeyReleased="#onKeyReleased" prefHeight="26.0" prefWidth="90.0" />
+		<FlowPane fx:id="fpSector" layoutX="156.0" layoutY="45.0" prefHeight="139.0" prefWidth="454.0" styleClass="sector">
+			<stylesheets>
+				<URL value="@stock.css" />
+				<URL value="@stock.css" />
+			</stylesheets>
+		</FlowPane>
+		<Label layoutX="156.0" layoutY="23.0" prefHeight="18.0" prefWidth="118.0" text="Categories / Sectors" />
+		<RadioButton fx:id="rbCategory" layoutX="631.0" layoutY="95.0" mnemonicParsing="false" onAction="#searchMode" selected="true" text="Category" toggleGroup="$tgSearchMode" />
+      <Label fx:id="countMessage" layoutX="24.0" layoutY="652.0" prefHeight="18.0" prefWidth="235.0" />
+      <RadioButton fx:id="rbTopDividend" layoutX="631.0" layoutY="118.0" mnemonicParsing="false" onAction="#searchMode" text="Top Dividend Stocks" toggleGroup="$tgSearchMode" />
+	</children>
+</AnchorPane>

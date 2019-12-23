@@ -1,0 +1,9 @@
+.sector{
+	-fx-min-width:200;
+	-fx-padding :3;
+}
+
+#fpSector{
+		-fx-border-color: green;
+	
+}

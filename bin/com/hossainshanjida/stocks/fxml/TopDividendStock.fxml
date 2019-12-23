@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="apStock" prefHeight="685.0" prefWidth="785.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jbbwebsolutions.stocks.fxml.StockController">
+	<children>
+		<TableView fx:id="tvStock" layoutX="26.0" layoutY="142.0" prefHeight="495.0" prefWidth="726.0">
+			<columns>
+				<TableColumn fx:id="colSymbol" prefWidth="106.39999771118164" text="Stock Symbol">
+
+					<cellValueFactory>
+						<PropertyValueFactory property="symbol" />
+					</cellValueFactory>
+
+				</TableColumn>
+				<TableColumn fx:id="colPrice" prefWidth="85.60000610351562" text="Current Price">
+					<cellValueFactory>
+						<PropertyValueFactory property="price" />
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn fx:id="colSector" prefWidth="83.99998474121094" text="Sectors">
+					<cellValueFactory>
+						<PropertyValueFactory property="sectors" />
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn fx:id="colNetIncome" prefWidth="112.0" text="Net Income">
+					<cellValueFactory>
+						<PropertyValueFactory property="netIncome" />
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn fx:id="colDividendYield" prefWidth="94.4000244140625" text="Dividend Yield">
+					<cellValueFactory>
+						<PropertyValueFactory property="dividendYield" />
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn fx:id="colFrequency" prefWidth="122.4000244140625" text="Frequency">
+					<cellValueFactory>
+						<PropertyValueFactory property="category" />
+					</cellValueFactory>
+				</TableColumn>
+            <TableColumn fx:id="colExchange" prefWidth="99.199951171875" text="Exchange">
+               <cellValueFactory>
+                  <PropertyValueFactory property="category" />
+               </cellValueFactory>
+            </TableColumn>
+			</columns>
+		</TableView>
+		<Label fx:id="lblTitle" alignment="CENTER" contentDisplay="CENTER" layoutX="280.0" layoutY="6.0" prefHeight="35.0" prefWidth="196.0" text="Top Dividend Stock" textAlignment="CENTER">
+			<font>
+				<Font size="15.0" />
+			</font>
+		</Label>
+		<Label fx:id="lblMessage" layoutX="24.0" layoutY="556.0" prefHeight="17.0" prefWidth="434.0" />
+		<Label layoutX="41.0" layoutY="103.0" prefHeight="17.0" prefWidth="434.0" text="Net Income greater than 999, and the dividend yeild is greater than 4%" />
+		<RadioButton fx:id="rbSimple" layoutX="76.0" layoutY="60.0" mnemonicParsing="false" onAction="#searchMode" text="Simple">
+			<toggleGroup>
+				<ToggleGroup fx:id="tgSearchMode" />
+			</toggleGroup>
+		</RadioButton>
+		<RadioButton fx:id="rbAdvanced" layoutX="153.0" layoutY="60.0" mnemonicParsing="false" onAction="#searchMode" text="Advance" toggleGroup="$tgSearchMode" />
+		<RadioButton fx:id="rbCategory" layoutX="224.0" layoutY="60.0" mnemonicParsing="false" onAction="#searchMode" text="Category" toggleGroup="$tgSearchMode" />
+      <Label fx:id="countMessage" layoutX="24.0" layoutY="652.0" prefHeight="18.0" prefWidth="235.0" />
+      <RadioButton fx:id="rbTopDividend" layoutX="308.0" layoutY="60.0" mnemonicParsing="false" onAction="#searchMode" selected="true" text="Top Dividend Stocks" toggleGroup="$tgSearchMode" />
+	</children>
+</AnchorPane>
